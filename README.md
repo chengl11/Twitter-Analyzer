@@ -3,7 +3,7 @@
 
 ### Product Mission
 
-This product is aimed at people who want to know how people on Twitter feel about something, such as people's attitude and sentiment.
+This product is aimed at people who want to know how people on Twitter feel about something.
 
 It is built based on the basic Twitter API application and Google Natural Language API application. It uses an analyzeSentiment request, which performs sentiment analysis on text. The sentiment analysis attempts to determine the overall attitude (positive or negative) and is represented by numerical score and magnitude values.
 
