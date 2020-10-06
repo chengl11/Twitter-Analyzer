@@ -16,8 +16,6 @@ from google.cloud.language import enums
 from google.cloud.language import types
 
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/Lin/Desktop/BU_Courses/EC601/my_google_key.json"
-
 
 # Twitter API credentials
 
