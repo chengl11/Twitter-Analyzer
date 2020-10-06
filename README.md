@@ -49,5 +49,7 @@ It first shows the content of current tweet. Secondly, it shows the content and 
 
 ##### Second User Story
 
-Jack is a shoe company product analyst, he wants to know people’s attitude for their company's new shoes, he will use our analyzer.
+Jack is a shoe company product analyst, he wants to know people’s attitude for their company's new shoes, he will use our analyzer. He could choose to start looking from the release date of their product and the number of tweets on Twitter.
+
+
 
