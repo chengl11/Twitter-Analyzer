@@ -14,9 +14,9 @@ For more infomation, please visit
 
 ### Product Instruction
 There are three inputs of this analyzer:
-    1. search_words: The keyword that you want to search. It will appear in each tweet's content.
-    2. date_since: What date do you want to start searching?
-    3. The maximum number of tweets you want to search.
+1. search_words: The keyword that you want to search. It will appear in each tweet's content.
+2. date_since: What date do you want to start searching?
+3. The maximum number: The maximum number of tweets you want to search.
 
 
 ### Target User
@@ -28,7 +28,7 @@ There are three inputs of this analyzer:
 
 ### User Stories
 
-##### First User Story
+#### First User Story
 
 To find out how people on Twitter felt about Coronavirus, Alice typed in the keyword ("#COVID"), start searching date ("2020-10-01") and number of tweets(1). Then, the Analyzer shows the following information:
 
@@ -47,7 +47,7 @@ Overall Sentiment of This Tweet: score of -0.699999988079071 with magnitude of 0
 
 It first shows the content of current tweet. Secondly, it shows the content and sentiment score of each sentence of that tweet. Finally, it shows the overall sentiment of this tweet. Therefore, by looking at this result, Alice thinks that the mood towards Coronavirus is not optimistic.
 
-##### Second User Story
+#### Second User Story
 
 Jack is a shoe company product analyst, he wants to know people’s attitude for their company's new shoes, he will use our analyzer. He could choose to start looking from the release date of their product and the number of tweets on Twitter.
 

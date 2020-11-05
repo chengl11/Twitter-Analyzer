@@ -6,7 +6,7 @@
 
 import tweepy  # https://github.com/tweepy/tweepy
 import json
-from twitter_api_credentials import *
+# from twitter_api_credentials import *
 
 # Google-API-Import-Files
 import argparse
@@ -19,18 +19,18 @@ import os
 
 # Twitter API credentials
 
-consumer_key = my_consumer_key
-consumer_secret = my_consumer_secret
-access_key = my_access_key
-access_secret = my_access_secret
+TWITTER_CONSUMER_KEY = "my_consumer_key"
+TWITTER_CONSUMER_SECRET = "my_consumer_secret"
+TWITTER_ACCESS_KEY = "my_access_key"
+TWITTER_ACCESS_SECRET = "my_access_secret"
 
 
 ''' Authorize twitter and initialize tweepy '''
 
 
 def authorize_and_initialize():
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_key, access_secret)
+    auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
+    auth.set_access_token(TWITTER_ACCESS_KEY, TWITTER_ACCESS_SECRET)
     api = tweepy.API(auth, wait_on_rate_limit=True)
 
     return api
@@ -127,7 +127,7 @@ def analyze(tweets_list):
 
 if __name__ == '__main__':
 
-    print("Social Media Analyzer")
+    print("Welcome to Twitter Analyzer")
 
     # Define the search term
     search_words = "#COVID"
