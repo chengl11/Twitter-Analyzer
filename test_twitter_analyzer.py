@@ -14,6 +14,10 @@ def test_wrongkey():
 
     assert len(analyzer.search_tweet(search_words, date_since, max_number)) == 5
 
+    max_number = 3
+    
+    assert len(analyzer.search_tweet(search_words, date_since, max_number)) == 3
+
     # # analyze all tweets
     # analyze(tweets_list)
 
