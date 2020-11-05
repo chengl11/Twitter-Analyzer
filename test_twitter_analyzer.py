@@ -17,4 +17,3 @@ def test_wrongkey():
     # # analyze all tweets
     # analyze(tweets_list)
 
-test_wrongkey()
