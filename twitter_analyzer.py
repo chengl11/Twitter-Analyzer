@@ -6,7 +6,6 @@
 
 import tweepy  # https://github.com/tweepy/tweepy
 import json
-# from twitter_api_credentials import *
 
 # Google-API-Import-Files
 import argparse
@@ -16,21 +15,23 @@ from google.cloud.language import enums
 from google.cloud.language import types
 
 import os
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/Lin/Desktop/BU_Courses/EC601/my_google_key.json"
+
 
 # Twitter API credentials
 
-TWITTER_CONSUMER_KEY = "my_consumer_key"
-TWITTER_CONSUMER_SECRET = "my_consumer_secret"
-TWITTER_ACCESS_KEY = "my_access_key"
-TWITTER_ACCESS_SECRET = "my_access_secret"
+consumer_key = "Enter your consumer_key"
+consumer_secret = "Enter your consumer_secret"
+access_key = "Enter your access_key"
+access_secret = "Enter your access_secret"
 
 
 ''' Authorize twitter and initialize tweepy '''
 
 
 def authorize_and_initialize():
-    auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
-    auth.set_access_token(TWITTER_ACCESS_KEY, TWITTER_ACCESS_SECRET)
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_key, access_secret)
     api = tweepy.API(auth, wait_on_rate_limit=True)
 
     return api
@@ -39,7 +40,7 @@ def authorize_and_initialize():
 '''
 This function is about searching Twitter for recent tweets. It returns a list of tweets.
 There are three inputs:
-    1. search_words: The keyword that you want to search. It will in each tweet's content after searching.
+    1. search_words: The keyword that you want to search. It will appear in each tweet's content.
     2. date_since: What date do you want to start searching?
     3. The maximum number of tweets you want to search.
 '''
@@ -81,6 +82,7 @@ def print_result(content, annotations):
     score = annotations.document_sentiment.score
     magnitude = annotations.document_sentiment.magnitude
 
+    # This is the sentiment score of each sentenses
     for index, sentence in enumerate(annotations.sentences):
         print('The {} sentence: {}'.format(
             index+1, sentence.text.content))
@@ -93,14 +95,19 @@ def print_result(content, annotations):
         score, magnitude))
     return 0
 
+
+
 '''
 This function is about making the analyze.
-There is one input:
-    1. tweets_list: A list of all tweets
+There are three inputs:
+    1. search_words: The keyword that you want to search. It will appear in each tweet's content.
+    2. date_since: What date do you want to start searching?
+    3. The maximum number of tweets you want to search.
 '''
 
-def analyze(tweets_list):
-
+def analyze(search_words, date_since, max_number):
+    # get all tweets into a list
+    tweets_list = search_tweet(search_words, date_since, max_number)
     print()
     print("#######################")
     print()
@@ -125,21 +132,21 @@ def analyze(tweets_list):
         print()
 
 
+
+
 if __name__ == '__main__':
 
     print("Welcome to Twitter Analyzer")
+
 
     # Define the search term
     search_words = "#COVID"
 
     # Define the date_since date
-    date_since = "2020-9-25"
+    date_since = "2020-10-01"
 
-    # Define the date_since date
+    # Define the max number of tweets that you want to search
     max_number = 1
 
-    # get all tweets into a list
-    tweets_list = search_tweet(search_words, date_since, max_number)
-
     # analyze all tweets
-    analyze(tweets_list)
+    analyze(search_words, date_since, max_number)
